@@ -1,0 +1,51 @@
+###########################
+#####                 #####
+####                   ####
+###   Author: HALD91    ###
+###   Version: 1.3.4.2  ###
+####                   ####
+#####                 #####
+###########################
+
+## Set Your prefix here:
+Prefix: ''
+
+## Poison Axe
+PoisonAxeConfig:
+  Soulbound: true
+  Name: '&5PoisonAxe'
+
+## Nausea Axe
+NauseaAxeConfig:
+  Soulbound: true
+  Name: '&3NauseaAxe'
+
+## Blindness Axe
+BlindnessAxeConfig:
+   Soulbound: true
+   Name: '&6BlindnessAxe'
+
+## Wither Axe
+WitherAxeConfig:
+  Soulbound: true
+  Name: '&5WitherAxe'
+
+## Poison Sword
+PoisonSwordConfig:
+  Soulbound: true
+  Name: '&5PoisonAxe'
+
+## Nausea Sword
+NauseaSwordConfig:
+  Soulbound: true
+  Name: '&3NauseaAxe'
+
+## Blindness Sword
+BlindnessSwordConfig:
+  Soulbound: true
+  Name: '&6BlindnessAxe'
+
+## Wither Sword
+WitherSwordConfig:
+  Soulbound: true
+  Name: '&5WitherAxe'
