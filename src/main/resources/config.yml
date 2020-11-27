@@ -8,44 +8,58 @@
 ###########################
 
 ## Set Your prefix here:
-Prefix: ''
+Prefix: '&7[&3CustomItem&7]'
 
 ## Poison Axe
 PoisonAxeConfig:
   Soulbound: true
+  Enchantments: true
   Name: '&5PoisonAxe'
 
 ## Nausea Axe
 NauseaAxeConfig:
   Soulbound: true
+  Enchantments: true
   Name: '&3NauseaAxe'
 
 ## Blindness Axe
 BlindnessAxeConfig:
-   Soulbound: true
-   Name: '&6BlindnessAxe'
+  Soulbound: true
+  Enchantments: true
+  Name: '&6BlindnessAxe'
 
 ## Wither Axe
 WitherAxeConfig:
   Soulbound: true
+  Enchantments: true
   Name: '&5WitherAxe'
 
 ## Poison Sword
 PoisonSwordConfig:
   Soulbound: true
-  Name: '&5PoisonAxe'
+  Enchantments: true
+  Name: '&5PoisonSword'
 
 ## Nausea Sword
 NauseaSwordConfig:
   Soulbound: true
-  Name: '&3NauseaAxe'
+  Enchantments: true
+  Name: '&3NauseaSword'
 
 ## Blindness Sword
 BlindnessSwordConfig:
   Soulbound: true
-  Name: '&6BlindnessAxe'
+  Enchantments: true
+  Name: '&6BlindnessSword'
 
 ## Wither Sword
 WitherSwordConfig:
   Soulbound: true
-  Name: '&5WitherAxe'
+  Enchantments: true
+  Name: '&5WitherSword'
+
+## Explosive Pickaxe
+ExplosivePickaxeConfig:
+  Soulbound: true
+  Enchantments: true
+  Name: '&4Explosive Pickaxe'
