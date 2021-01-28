@@ -1,23 +1,15 @@
 package me.HALD91.listener;
 
-import com.sun.xml.internal.ws.api.message.Packet;
 import me.HALD91.Main;
 import org.bukkit.Effect;
-import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -38,8 +30,7 @@ public class listener implements Listener {
     public String BSW = main.getConfig().getString("BlindnessSwordConfig.Name");
     public String WSW = main.getConfig().getString("WitherSwordConfig.Name");
 
-    // Pickaxe's names
-    public String EXPAXE = main.getConfig().getString("ExplosivePickaxeConfig.Name");
+
 
     public boolean onitem(ItemStack I, String Displayname, Material ItemType) {
         return (I != null) && (I.hasItemMeta()) && (I.getItemMeta().getDisplayName().equalsIgnoreCase(Displayname)) && (I.getType() == ItemType);
@@ -110,18 +101,6 @@ public class listener implements Listener {
                 }
                 return;
             }
-        }
-    }
-    @EventHandler
-    public void blockbreak(BlockBreakEvent e) {
-        Player p = e.getPlayer();
-        Block b = e.getBlock();
-
-        if (onitem(null, EXPAXE + "", Material.DIAMOND_PICKAXE)) {
-            b.getLocation().getX();
-            b.getLocation().getY();
-            b.getLocation().getZ();
-            return;
         }
     }
 }

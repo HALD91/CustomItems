@@ -1,9 +1,9 @@
-name: CustomItems
+name: WeaponKit
 main: me.HALD91.Main
 author: HALD91
-version: 1.3.4.2
+version: 1.5.1.7
 api-version: 1.13
 
 commands:
-  CustomItem:
-    description: CustomItem System management command.
+  WeaponKit:
+    description: WeaponKit System management command.

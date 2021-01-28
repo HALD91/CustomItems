@@ -2,13 +2,13 @@
 #####                 #####
 ####                   ####
 ###   Author: HALD91    ###
-###   Version: 1.3.4.2  ###
+###   Version: 1.5.1.7  ###
 ####                   ####
 #####                 #####
 ###########################
 
 ## Set Your prefix here:
-Prefix: '&7[&3CustomItem&7]'
+Prefix: '&7[&3WeaponKit&7]'
 
 ## Poison Axe
 PoisonAxeConfig:
@@ -57,9 +57,3 @@ WitherSwordConfig:
   Soulbound: true
   Enchantments: true
   Name: '&5WitherSword'
-
-## Explosive Pickaxe
-ExplosivePickaxeConfig:
-  Soulbound: true
-  Enchantments: true
-  Name: '&4Explosive Pickaxe'

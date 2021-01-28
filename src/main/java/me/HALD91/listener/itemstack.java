@@ -10,6 +10,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.bukkit.enchantments.Enchantment.FIRE_ASPECT;
 
@@ -34,7 +35,7 @@ public class itemstack implements Listener {
         ItemMeta Im = I.getItemMeta();
         if (main.getConfig().getBoolean("PoisonAxeConfig.Enchantments")) {
             Im.addEnchant(Enchantment.DAMAGE_ALL, 4, true);
-            Im.addEnchant(Enchantment.DURABILITY, 2, true);
+            Im.addEnchant(Enchantment.DURABILITY, 3, true);
         }
         Im.setDisplayName(ChatColor.translateAlternateColorCodes('&', PAXE));
         if (main.getConfig().getBoolean("PoisonAxeConfig.Soulbound")) {
@@ -51,7 +52,7 @@ public class itemstack implements Listener {
         ItemMeta Im = I.getItemMeta();
         if (main.getConfig().getBoolean("NauseaAxeConfig.Enchantments")) {
             Im.addEnchant(Enchantment.DAMAGE_ALL, 4, true);
-            Im.addEnchant(Enchantment.DURABILITY, 2, true);
+            Im.addEnchant(Enchantment.DURABILITY, 3, true);
         }
         Im.setDisplayName(ChatColor.translateAlternateColorCodes('&', NAXE));
         if (main.getConfig().getBoolean("NauseaAxeConfig.Soulbound")) {
@@ -68,7 +69,7 @@ public class itemstack implements Listener {
         ItemMeta Im = I.getItemMeta();
         if (main.getConfig().getBoolean("BlindnessAxeConfig.Enchantments")) {
             Im.addEnchant(Enchantment.DAMAGE_ALL, 4, true);
-            Im.addEnchant(Enchantment.DURABILITY, 2, true);
+            Im.addEnchant(Enchantment.DURABILITY, 3, true);
         }
         Im.setDisplayName(ChatColor.translateAlternateColorCodes('&', BAXE));
         if (main.getConfig().getBoolean("BlindnessAxeConfig.Soulbound")) {
@@ -85,7 +86,7 @@ public class itemstack implements Listener {
         ItemMeta Im = I.getItemMeta();
         if (main.getConfig().getBoolean("WitherAxeConfig.Enchantments")) {
             Im.addEnchant(Enchantment.DAMAGE_ALL, 4, true);
-            Im.addEnchant(Enchantment.DURABILITY, 2, true);
+            Im.addEnchant(Enchantment.DURABILITY, 3, true);
         }
         Im.setDisplayName(ChatColor.translateAlternateColorCodes('&', WAXE));
         if (main.getConfig().getBoolean("WitherAxeConfig.Soulbound")) {
@@ -103,7 +104,7 @@ public class itemstack implements Listener {
         ItemMeta Im = I.getItemMeta();
         if (main.getConfig().getBoolean("PoisonAxeConfig.Enchantments")) {
             Im.addEnchant(Enchantment.DAMAGE_ALL, 4, true);
-            Im.addEnchant(Enchantment.DURABILITY, 2, true);
+            Im.addEnchant(Enchantment.DURABILITY, 3, true);
         }
         Im.setDisplayName(ChatColor.translateAlternateColorCodes('&', PSW));
         if (main.getConfig().getBoolean("PoisonAxeConfig.Soulbound")) {
@@ -120,7 +121,7 @@ public class itemstack implements Listener {
         ItemMeta Im = I.getItemMeta();
         if (main.getConfig().getBoolean("NauseaSwordConfig.Enchantments")) {
             Im.addEnchant(Enchantment.DAMAGE_ALL, 4, true);
-            Im.addEnchant(Enchantment.DURABILITY, 2, true);
+            Im.addEnchant(Enchantment.DURABILITY, 3, true);
         }
         Im.setDisplayName(ChatColor.translateAlternateColorCodes('&', NSW));
         if (main.getConfig().getBoolean("NauseaSwordConfig.Soulbound")) {
@@ -137,7 +138,7 @@ public class itemstack implements Listener {
         ItemMeta Im = I.getItemMeta();
         if (main.getConfig().getBoolean("BlindnessSwordConfig.Enchantments")) {
             Im.addEnchant(Enchantment.DAMAGE_ALL, 4, true);
-            Im.addEnchant(Enchantment.DURABILITY, 2, true);
+            Im.addEnchant(Enchantment.DURABILITY, 3, true);
         }
         Im.setDisplayName(ChatColor.translateAlternateColorCodes('&', BSW));
         if (main.getConfig().getBoolean("BlindnessSwordConfig.Soulbound")) {
@@ -154,7 +155,7 @@ public class itemstack implements Listener {
         ItemMeta Im = I.getItemMeta();
         if (main.getConfig().getBoolean("WitherSwordConfig.Enchantments")) {
             Im.addEnchant(Enchantment.DAMAGE_ALL, 4, true);
-            Im.addEnchant(Enchantment.DURABILITY, 2, true);
+            Im.addEnchant(Enchantment.DURABILITY, 3, true);
         }
         Im.setDisplayName(ChatColor.translateAlternateColorCodes('&', WSW));
         if (main.getConfig().getBoolean("WitherSwordConfig.Soulbound")) {
@@ -166,21 +167,5 @@ public class itemstack implements Listener {
         return I;
     }
 
-    // Pickaxe's
-    public ItemStack Explosive_Pickaxe() {
-        ItemStack I = new ItemStack(Material.DIAMOND_PICKAXE, 1);
-        ItemMeta Im = I.getItemMeta();
-        if (main.getConfig().getBoolean("ExplosivePickaxeConfig.Enchantments")) {
-            Im.addEnchant(Enchantment.DAMAGE_ALL, 4, true);
-            Im.addEnchant(Enchantment.DURABILITY, 2, true);
-        }
-        Im.setDisplayName(ChatColor.translateAlternateColorCodes('&', WSW));
-        if (main.getConfig().getBoolean("ExplosivePickaxeConfig.Soulbound")) {
-            ArrayList Nau = new ArrayList();
-            Nau.add("Soulbound");
-            Im.setLore(Nau);
-        }
-        I.setItemMeta(Im);
-        return I;
-    }
+
 }
