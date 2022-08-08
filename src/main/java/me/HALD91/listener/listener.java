@@ -1,6 +1,7 @@
 package me.HALD91.listener;
 
 import me.HALD91.Main;
+import org.bukkit.ChatColor;
 import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.entity.Item;
@@ -8,11 +9,16 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+
+import java.util.*;
 
 public class listener implements Listener {
     Main main = JavaPlugin.getPlugin(Main.class);
@@ -44,9 +50,25 @@ public class listener implements Listener {
         }
     }
 
+    // Disable Item drop if the item has Soulbound has lore.
+    public boolean isCustom(ItemStack item) {
+        if (item == null) return false;
+        if (!item.hasItemMeta()) return false;
+        ItemMeta meta = item.getItemMeta();
+        if (!meta.hasLore()) return false;
+        List<String> lore = meta.getLore();
+        return lore.stream().anyMatch((line) -> ChatColor.stripColor(line).equalsIgnoreCase("Soulbound"));
+    }
     @EventHandler
-    public void onEntityHit(EntityDamageByEntityEvent e)
-    {
+    public void playerDie(final PlayerDeathEvent e) {
+        List<ItemStack> Inventory = e.getDrops();
+        Inventory.removeIf((item) -> this.isCustom(item));
+    }
+
+    @EventHandler
+    public void onEntityHit(EntityDamageByEntityEvent e) {
+        int randy = (int) (Math.random() * 100);
+
         if (((e.getEntity() instanceof Player)) && ((e.getDamager() instanceof Player)))
         {
             if (e.isCancelled()) {
@@ -58,9 +80,11 @@ public class listener implements Listener {
 
                 // Axe's
                 if (onitem(I, PAXE + "", Material.DIAMOND_AXE)) {
-                    P.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 100, 1));
-                    P.getWorld().playEffect(P.getLocation(), Effect.POTION_BREAK, 0);
-                    return;
+                    if (randy <= 50) {
+                        P.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 100, 1));
+                        P.getWorld().playEffect(P.getLocation(), Effect.POTION_BREAK, 0);
+                        return;
+                    }
                 }
                 if (onitem(I, NAXE + "", Material.DIAMOND_AXE)) {
                     P.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 1));
