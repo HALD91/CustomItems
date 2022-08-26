@@ -10,6 +10,31 @@
 ## Set Your prefix here:
 Prefix: '&7[&3WeaponKit&7]'
 
+##NetherWart Kit
+NetherWartKit:
+  Enchantments: true
+  Soulbound: true
+  Name: '&5Weaponkit'
+
+## Wither Armor
+Armor:
+  WitherHelmet:
+    Enchantments: true
+    Soulbound: true
+    Name: '&5Wither Helmet'
+  WitherChestPlate:
+    Enchantments: true
+    Soulbound: true
+    Name: '&5Wither ChestPlate'
+  WitherLeggings:
+    Enchantments: true
+    Soulbound: true
+    Name: '&5Wither Leggings'
+  WitherBoots:
+    Enchantments: true
+    Soulbound: true
+    Name: '&5Wither Boots'
+
 ## Poison Axe
 PoisonAxeConfig:
   Soulbound: true

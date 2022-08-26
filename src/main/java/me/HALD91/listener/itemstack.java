@@ -28,6 +28,15 @@ public class itemstack implements Listener {
     public String BSW = main.getConfig().getString("BlindnessSwordConfig.Name");
     public String WSW = main.getConfig().getString("WitherSwordConfig.Name");
 
+    // NetherWart
+    public String NW = main.getConfig().getString("NetherWartKit.Name");
+
+    // Armor
+    public String WH = main.getConfig().getString("Armor.WitherHelmet.Name");
+    public String WC = main.getConfig().getString("Armor.WitherChestPlate.Name");
+    public String WL = main.getConfig().getString("Armor.WitherLeggings.Name");
+    public String WB = main.getConfig().getString("Armor.WitherBoots.Name");
+
 
     // Axe's
     public ItemStack Poison_Axe() {
@@ -166,6 +175,84 @@ public class itemstack implements Listener {
         I.setItemMeta(Im);
         return I;
     }
+    public ItemStack Nether_Wart() {
+        ItemStack I = new ItemStack(Material.NETHER_STAR, 1);
+        ItemMeta Im = I.getItemMeta();
+        if (main.getConfig().getBoolean("NetherWartKit.Enchantments")) {
+            Im.addEnchant(Enchantment.DURABILITY, 3, true);
+        }
+        Im.setDisplayName(ChatColor.translateAlternateColorCodes('&', NW));
+        if (main.getConfig().getBoolean("NetherWartKit.Soulbound")) {
+            ArrayList Nau = new ArrayList();
+            Nau.add("Soulbound");
+            Im.setLore(Nau);
+        }
+        I.setItemMeta(Im);
+        return I;
+    }
 
-
+    public ItemStack Nether_Wart_Helmet() {
+        ItemStack I = new ItemStack(Material.DIAMOND_HELMET, 1);
+        ItemMeta Im = I.getItemMeta();
+        if (main.getConfig().getBoolean("Armor.WitherHelmet.Enchantments")) {
+            Im.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
+            Im.addEnchant(Enchantment.DURABILITY, 3, true);
+        }
+        Im.setDisplayName(ChatColor.translateAlternateColorCodes('&', WH));
+        if (main.getConfig().getBoolean("Armor.WitherHelmet.Soulbound")) {
+            ArrayList Nau = new ArrayList();
+            Nau.add("Soulbound");
+            Im.setLore(Nau);
+        }
+        I.setItemMeta(Im);
+        return I;
+    }
+    public ItemStack Nether_Wart_Chestplate() {
+        ItemStack I = new ItemStack(Material.DIAMOND_CHESTPLATE, 1);
+        ItemMeta Im = I.getItemMeta();
+        if (main.getConfig().getBoolean("Armor.WitherChestPlate.Enchantments")) {
+            Im.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
+            Im.addEnchant(Enchantment.DURABILITY, 3, true);
+        }
+        Im.setDisplayName(ChatColor.translateAlternateColorCodes('&', WC));
+        if (main.getConfig().getBoolean("Armor.WitherChestPlate.Soulbound")) {
+            ArrayList Nau = new ArrayList();
+            Nau.add("Soulbound");
+            Im.setLore(Nau);
+        }
+        I.setItemMeta(Im);
+        return I;
+    }
+    public ItemStack Nether_Wart_Leggins() {
+        ItemStack I = new ItemStack(Material.DIAMOND_LEGGINGS, 1);
+        ItemMeta Im = I.getItemMeta();
+        if (main.getConfig().getBoolean("Armor.WitherLeggings.Enchantments")) {
+            Im.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
+            Im.addEnchant(Enchantment.DURABILITY, 3, true);
+        }
+        Im.setDisplayName(ChatColor.translateAlternateColorCodes('&', WL));
+        if (main.getConfig().getBoolean("Armor.WitherLeggings.Soulbound")) {
+            ArrayList Nau = new ArrayList();
+            Nau.add("Soulbound");
+            Im.setLore(Nau);
+        }
+        I.setItemMeta(Im);
+        return I;
+    }
+    public ItemStack Nether_Wart_Boots() {
+        ItemStack I = new ItemStack(Material.DIAMOND_BOOTS, 1);
+        ItemMeta Im = I.getItemMeta();
+        if (main.getConfig().getBoolean("Armor.WitherBoots.Enchantments")) {
+            Im.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
+            Im.addEnchant(Enchantment.DURABILITY, 3, true);
+        }
+        Im.setDisplayName(ChatColor.translateAlternateColorCodes('&', WB));
+        if (main.getConfig().getBoolean("Armor.WitherBoots.Soulbound")) {
+            ArrayList Nau = new ArrayList();
+            Nau.add("Soulbound");
+            Im.setLore(Nau);
+        }
+        I.setItemMeta(Im);
+        return I;
+    }
 }

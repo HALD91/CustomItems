@@ -67,7 +67,7 @@ public class listener implements Listener {
 
     @EventHandler
     public void onEntityHit(EntityDamageByEntityEvent e) {
-        int randy = (int) (Math.random() * 100);
+        Random rand = new Random();
 
         if (((e.getEntity() instanceof Player)) && ((e.getDamager() instanceof Player)))
         {
@@ -80,11 +80,9 @@ public class listener implements Listener {
 
                 // Axe's
                 if (onitem(I, PAXE + "", Material.DIAMOND_AXE)) {
-                    if (randy <= 50) {
-                        P.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 100, 1));
-                        P.getWorld().playEffect(P.getLocation(), Effect.POTION_BREAK, 0);
-                        return;
-                    }
+                    P.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 100, 1));
+                    P.getWorld().playEffect(P.getLocation(), Effect.POTION_BREAK, 0);
+                    return;
                 }
                 if (onitem(I, NAXE + "", Material.DIAMOND_AXE)) {
                     P.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 1));

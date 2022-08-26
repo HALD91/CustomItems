@@ -7,10 +7,30 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class commandmanager extends itemstack implements CommandExecutor {
+public class commandmanager extends itemstack implements CommandExecutor, Listener {
+    @EventHandler
+    public void NetherStar (PlayerInteractEvent event){
+        Main main = JavaPlugin.getPlugin(Main.class);
+        if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+            if (event.getPlayer().getInventory().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', main.getConfig().getString("NetherWartKit.Name")))) {
+                ItemStack wart = new itemstack().Nether_Wart();
+                event.getPlayer().getInventory().remove(wart);
+                event.getPlayer().getInventory().addItem(new ItemStack[]{Wither_Sword()});
+                event.getPlayer().getInventory().addItem(new ItemStack[]{Nether_Wart_Helmet()});
+                event.getPlayer().getInventory().addItem(new ItemStack[]{Nether_Wart_Chestplate()});
+                event.getPlayer().getInventory().addItem(new ItemStack[]{Nether_Wart_Leggins()});
+                event.getPlayer().getInventory().addItem(new ItemStack[]{Nether_Wart_Boots()});
+                event.getPlayer().updateInventory();
+            }
+        }
+    }
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
         if ((sender instanceof Player)){
@@ -25,12 +45,20 @@ public class commandmanager extends itemstack implements CommandExecutor {
                         p.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', main.getConfig().getString("Prefix").toString() + " " + ChatColor.WHITE + "Command error, please use " + ChatColor.GREEN + "/WeaponKit help" + " " + ChatColor.WHITE + "to see the command list."));
                     }
                     if (args.length == 1) {
+                        if (args[0].equalsIgnoreCase("Star")) {
+                            if (p.hasPermission("weaponkit.NetherWart.give")) {
+                                p.getInventory().addItem(new ItemStack[]{Nether_Wart()});
+                                p.updateInventory();
+                                p.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', main.getConfig().getString("Prefix").toString() + " " + ChatColor.WHITE + "You've received 1x" + ChatColor.DARK_PURPLE + " " + "WeaponKit."));
+                            }
+                        }
                         if (args[0].equalsIgnoreCase("Help")) {
                             if (p.hasPermission("weaponkit.help.use")) {
                                 p.sendMessage(ChatColor.GRAY + "-----------------" + ChatColor.GREEN + " Help " + ChatColor.GRAY + "---------------");
                                 p.sendMessage(ChatColor.AQUA + "/WeaponKit help" + ChatColor.WHITE + " " + "To see how you use this command");
                                 p.sendMessage(ChatColor.AQUA + "/WeaponKit List" + ChatColor.WHITE + " " + "To see what type of items are available");
                                 p.sendMessage(ChatColor.AQUA + "/WeaponKit perms" + ChatColor.WHITE + " " + "To see all permissions");
+                                p.sendMessage(ChatColor.AQUA + "/WeaponKit Star" + ChatColor.WHITE + " " + "To receive a Nether star that allows you to right click it an receive a kit of wither armor and sword");
                                 p.sendMessage(ChatColor.AQUA + "/WeaponKit <ItemType> <ItemName>" + ChatColor.WHITE + " " + "To teleport to a warp (Opens a GUI)");
                                 p.sendMessage(ChatColor.AQUA + "/WeaponKit reload" + ChatColor.WHITE + " " + "To reload the config");
                                 p.sendMessage(ChatColor.GRAY + "-------------------------------------");
@@ -119,28 +147,28 @@ public class commandmanager extends itemstack implements CommandExecutor {
                                 if (p.hasPermission("weaponkit.poison.sword.give")) {
                                     p.getInventory().addItem(new ItemStack[]{Poison_Sword()});
                                     p.updateInventory();
-                                    p.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', main.getConfig().getString("Prefix").toString() + " " + ChatColor.WHITE + "You've received 1x" + ChatColor.DARK_PURPLE + " " + "Poison Axe."));
+                                    p.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', main.getConfig().getString("Prefix").toString() + " " + ChatColor.WHITE + "You've received 1x" + ChatColor.DARK_PURPLE + " " + "Poison Sword."));
                                 }
                             }
                             if (args[1].equalsIgnoreCase("Nausea")) {
                                 if (p.hasPermission("weaponkit.nausea.sword.give")) {
                                     p.getInventory().addItem(new ItemStack[]{Nausea_Sword()});
                                     p.updateInventory();
-                                    p.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', main.getConfig().getString("Prefix").toString() + " " + ChatColor.WHITE + "You've received 1x" + ChatColor.DARK_AQUA + " " + "Nausea Axe."));
+                                    p.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', main.getConfig().getString("Prefix").toString() + " " + ChatColor.WHITE + "You've received 1x" + ChatColor.DARK_AQUA + " " + "Nausea Sword."));
                                 }
                             }
                             if (args[1].equalsIgnoreCase("Blindness")) {
                                 if (p.hasPermission("weaponkit.blindness.sword.give")) {
                                     p.getInventory().addItem(new ItemStack[]{Blindness_Sword()});
                                     p.updateInventory();
-                                    p.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', main.getConfig().getString("Prefix").toString() + " " + ChatColor.WHITE + "You've received 1x" + ChatColor.GOLD + " " + "Blindness Axe."));
+                                    p.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', main.getConfig().getString("Prefix").toString() + " " + ChatColor.WHITE + "You've received 1x" + ChatColor.GOLD + " " + "Blindness Sword."));
                                 }
                             }
                             if (args[1].equalsIgnoreCase("Wither")) {
                                 if (p.hasPermission("weaponkit.wither.sword.give")) {
                                     p.getInventory().addItem(new ItemStack[]{Wither_Sword()});
                                     p.updateInventory();
-                                    p.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', main.getConfig().getString("Prefix").toString() + " " + ChatColor.WHITE + "You've received 1x" + ChatColor.DARK_PURPLE + " " + "Wither Axe."));
+                                    p.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', main.getConfig().getString("Prefix").toString() + " " + ChatColor.WHITE + "You've received 1x" + ChatColor.DARK_PURPLE + " " + "Wither Sword."));
                                 }
                             }
                         }
